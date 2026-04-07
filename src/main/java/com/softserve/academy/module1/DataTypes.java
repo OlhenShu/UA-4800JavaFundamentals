@@ -1,65 +1,70 @@
 package com.softserve.academy.module1;
 
+/**
+ * The DataTypes class demonstrates the use of various primitive and reference data types in Java.
+ * It showcases the initialization, assignment, and usage of these types, as well as basic console output.
+ *
+ * Primitive data types covered include:
+ * - Integer types: byte, short, int, and long
+ * - Floating-point types: float and double
+ * - Character type: char
+ * - Boolean type: boolean
+ *
+ * Reference data types demonstrated include:
+ * - String objects for textual data
+ * - Array objects for storing collections of data
+ * - Wrapper classes (e.g., Integer, Double) for working with primitve data types as objects
+ *
+ * The main method illustrates:
+ * - Initialization and printing of various data types
+ * - Using arrays and their properties
+ * - Utilizing wrapper classes to encapsulate primitive data types
+ */
+
 public class DataTypes {
     public static void main(String[] args) {
-        int i, b, t;
+        // Primitive data types
 
-        //primitive data types
-        byte byteExample = 10;//-128 to 127
-        System.out.println("byte with value: " + byteExample);
-        short shortExample = 150;//-32768 to 32767
-        System.out.println("short with value: " + shortExample);
-        int intExample = 1500;//-2 147 483 648 to 2 147 483 647
-        System.out.println("short with value: " + intExample);
-        long longExample = 150L;//-9 223 372 036 854 775 808 to 9 223 372 036 854 775 807
-        System.out.println("short with value: " + longExample);
+        // Integer types
+        byte b = 100;           // 8-bit signed integer, from -128 to 127
+        short s = 30000;        // 16-bit signed integer, from -32,768 to 32,767
+        int i = 100000;         // 32-bit signed integer, from -2^31 to 2^31-1 (standard for integers)
+        long l = 10000000000L;  // 64-bit signed integer, requires 'L' or 'l' suffix
 
-        boolean bool = false; // or true
-        System.out.println("boolean with value: " + bool);
-        char symbol = 'c';
-        System.out.println(symbol);
+        // Floating-point types
+        float f = 3.14f;        // 32-bit float, requires 'f' or 'F' suffix
+        double d = 3.14159;     // 64-bit float (standard for decimal numbers)
 
-        float floatExample = 15.5f;
-        System.out.println(floatExample);
+        // Character type
+        char c = 'A';           // 16-bit Unicode character
 
-        double d = 15.55555555;
-        System.out.println(d);
+        // Boolean type
+        boolean bool = true;    // Can only be true or false
 
-        //constants
+        // Printing primitive types
+        System.out.println("byte: " + b);
+        System.out.println("short: " + s);
+        System.out.println("int: " + i);
+        System.out.println("long: " + l);
+        System.out.println("float: " + f);
+        System.out.println("double: " + d);
+        System.out.println("char: " + c);
+        System.out.println("boolean: " + bool);
 
-        System.out.println(Byte.MIN_VALUE);    // -128
-        System.out.println(Byte.MAX_VALUE);    // 127
-        System.out.println(Integer.MIN_VALUE); // -2147483648
-        System.out.println(Integer.MAX_VALUE); // 2147483647
-        System.out.println(Long.MIN_VALUE);    // -9223372036854775808
-        System.out.println(Long.MAX_VALUE);    // 9223372036854775807
-        System.out.println(Float.MIN_VALUE);   // 1.4E-45
-        System.out.println(Float.MAX_VALUE);   // 3.4028235E38
-        System.out.println(Double.MIN_VALUE);  // 4.9E-324
-        System.out.println(Double.MAX_VALUE);
+        // Reference types
 
-        //Non-primitive
-        String name = "Olha";
-        System.out.println("Name: " + name);
+        // String - an object, not a primitive
+        String str = "Hello, Java!";
 
-        Int city = new Int();
-        System.out.println(city);
+        // Arrays
+        int[] intArray = {1, 2, 3, 4, 5};
 
-        Person person = new Person();
-        System.out.println(person);
-        i = 10;
-        System.out.println(i);
+        // Wrapper classes
+        Integer wrappedInt = 10;
+        Double wrappedDouble = 20.5;
 
-
+        System.out.println("String: " + str);
+        System.out.println("Array length: " + intArray.length);
+        System.out.println("Wrapper Integer: " + wrappedInt);
     }
-}
-class Int {
-    String city;
-}
-
-class Person {
-    int age;
-    String name;
-    String lastName;
-    String address;
 }
