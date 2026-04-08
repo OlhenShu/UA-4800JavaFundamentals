@@ -2,7 +2,7 @@ package com.softserve.academy.module1;
 
 import java.util.Scanner;
 
-class rUserInfo {
+class UserInfo {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
