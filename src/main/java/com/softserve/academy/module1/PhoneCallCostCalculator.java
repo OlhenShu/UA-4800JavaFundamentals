@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class PhoneCallCostCalculator {
     public static void main(String[] args) {
 
-        System.out.println("Welcome! Let's count how much your calls cost.");
+        System.out.println("Welcome! Let's count how much your calls cost. ");
 
         Scanner sc = new Scanner(System.in);
         System.out.println("\nPlease enter the cost per minute for the first call : ");

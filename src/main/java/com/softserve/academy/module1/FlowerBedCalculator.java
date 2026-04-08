@@ -14,7 +14,7 @@ public class FlowerBedCalculator {
         double area = Math.PI * radius * radius;
 
         System.out.println("Your perimeter is : " + perimeter);
-        System.out.println("Your area is: " + area);
+        System.out.println("Your area is : " + area);
 
         sc.close();
     }
