@@ -1,4 +1,4 @@
-package com.softserve.academy.module1;
+package com.softserve.academy.module2;
 
 import java.util.Scanner;
 
