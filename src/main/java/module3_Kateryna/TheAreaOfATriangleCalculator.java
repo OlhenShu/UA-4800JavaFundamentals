@@ -25,7 +25,4 @@ public class TheAreaOfATriangleCalculator {
                 * (semiperimeter - second)
                 * (semiperimeter - third));
     }
-
-
-
 }

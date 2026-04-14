@@ -22,6 +22,4 @@ public class TheSmallestNumber {
     private static int getTheSmallestNumber(int first, int second, int third) {
         return Math.min(first, Math.min(second, third));
     }
-
-
 }
