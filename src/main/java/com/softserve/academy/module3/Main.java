@@ -33,5 +33,21 @@ public class Main {
         System.out.println();
 
         person.changeName("Dmitry", "Ivanov");
+        System.out.println();
+
+        Person person2 = new Person();
+        person2.setFirstName("Ivan");
+        person2.setLastName("Ivanov");
+        person2.setBirthYear(1985);
+        person2.output();
+        System.out.println();
+
+        Person person3 = new Person("Boris", "Boris2");
+        System.out.println(person3);
+        System.out.println();
+
+        Person person4 = new Person();
+        System.out.println(person4);
+
     }
 }

@@ -26,8 +26,12 @@ public class Person {
     }
 
     public void output() {
-        System.out.println("First Name: " + firstName);
-        System.out.println("Last Name: " + lastName);
+
+        String safeFirstName = (firstName == null || firstName.isEmpty()) ? "Unknown" : firstName;
+        String safeLastName  = (lastName == null || lastName.isEmpty()) ? "Unknown" : lastName;
+
+        System.out.println("First Name: " + safeFirstName);
+        System.out.println("Last Name: " + safeLastName);
         System.out.println("Birth Year: " + birthYear);
     }
 
@@ -77,8 +81,12 @@ public class Person {
 
     @Override
     public String toString() {
-        return "FirstName: " + firstName + '\n' +
-                "LastName: " + lastName + '\n' +
+
+        String safeFirstName = (firstName == null || firstName.isEmpty()) ? "Unknown" : firstName;
+        String safeLastName  = (lastName == null || lastName.isEmpty()) ? "Unknown" : lastName;
+
+        return "FirstName: " + safeFirstName + '\n' +
+                "LastName: " + safeLastName + '\n' +
                 "BirthYear: " + birthYear;
     }
 }
