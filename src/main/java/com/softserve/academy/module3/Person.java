@@ -31,6 +31,26 @@ public class Person {
         System.out.println("Birth Year: " + birthYear);
     }
 
+    public void changeName(String firstName, String lastName) {
+        String oldFirstName = this.firstName;
+        String oldLastName = this.lastName;
+        if (oldFirstName.equals(firstName) && oldLastName.equals(lastName) || (firstName.isEmpty() && lastName.isEmpty())) {
+            System.out.println("No changes made for name.");
+            return;
+        }
+        if (!firstName.isEmpty()) {
+            this.firstName = firstName;
+        } else {
+            System.out.println("No changes made for first name.");
+        }
+        if (!lastName.isEmpty()){
+            this.lastName = lastName;
+        } else {
+            System.out.println("No changes made for last name.");
+        }
+        System.out.println("Name changed from " + oldFirstName + " " + oldLastName + " to " + this.firstName + " " + this.lastName);
+    }
+
     public String getFirstName() {
         return firstName;
     }

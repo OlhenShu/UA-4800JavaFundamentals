@@ -18,5 +18,20 @@ public class Main {
 
         System.out.println(person.getAge(person.getBirthYear()));
         System.out.println(person1.getAge(person1.getBirthYear()));     //too lazy to make some kind of exception
+        System.out.println();
+
+        person.changeName("Dmitry", "Ivanov");
+        System.out.println(person);
+        System.out.println();
+
+        person1.changeName("", "Jonson");
+        System.out.println(person1);
+        System.out.println();
+
+        person.changeName("", "");
+        System.out.println(person);
+        System.out.println();
+
+        person.changeName("Dmitry", "Ivanov");
     }
 }
