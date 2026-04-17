@@ -6,6 +6,8 @@ import java.util.Scanner;
 import static java.lang.System.in;
 
 public class Person {
+    private static final Scanner SCANNER = new Scanner(in);
+    private static int counter = 0;
     private String firstName;
     private String lastName;
     private int birthYear;
@@ -47,17 +49,16 @@ public class Person {
         return currentYear - this.birthYear;
     }
 
-    private static int counter = 0;
     public void input() {
         counter++;
         System.out.println("Person " + counter);
-        Scanner scan = new Scanner(in);
         System.out.print("Enter first name: ");
-        this.firstName = scan.nextLine();
+        this.firstName = SCANNER.nextLine();
         System.out.print("Enter last name: ");
-        this.lastName = scan.nextLine();
+        this.lastName = SCANNER.nextLine();
         System.out.print("Enter birth year: ");
-        this.birthYear = scan.nextInt();
+        this.birthYear = SCANNER.nextInt();
+        SCANNER.nextLine();
     }
 
     public void output() {
@@ -126,7 +127,7 @@ public class Person {
         person1.changeName("Anna", "Brown");
         person4.changeName(person4.getFirstName(), "Nolan");
         person5.changeName("Den", person5.getLastName());
-        System.out.println("Person 1 changed first name, person 4 changed last name and person 5 changed both");
+        System.out.println("Person 1 changed both names, person 4 changed last name, person 5 changed first name");
 
         System.out.print("Personal information about each of person: \n");
         person1.output();
