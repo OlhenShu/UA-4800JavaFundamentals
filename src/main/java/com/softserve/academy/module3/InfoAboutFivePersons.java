@@ -12,26 +12,26 @@ public class InfoAboutFivePersons {
         person1.setFirstName("Taras");
         person1.setLastName("Myskevych");
         person1.setBirthYear(1995);
-        person1.output1();
+        person1.printInfo1();
 
         Person person2 = new Person();
         person2.input("Ihor", "Vavryk",1996 );
-        System.out.println(person2.output());
+        System.out.println(person2.printInfo());
 
 
         Person person3 = new Person();
         person3.setFirstName("Roman");
         person3.setLastName("Petrenko");
         person3.setBirthYear(1994);
-        person3.output1();
+        person3.printInfo1();
 
 
         Person person4 = new Person();
         person4.setFirstName("Oleh");
         person4.setLastName("Yalm");
         person4.setBirthYear(1999);
-        person4.changeName("Yura", "Ivanov"); // swap fn and ln
-        person4.output1();
+        person4.changeName("Yura", "Ivanov"); // replace name with new first and last name
+        person4.printInfo1();
 
         Person person5 = new Person ();
         System.out.print("\n"+"First name: ");
@@ -41,7 +41,7 @@ public class InfoAboutFivePersons {
         System.out.print("Birth year: ");
         int birthYear = scan.nextInt();
         person5.input(firstName,lastName,birthYear);
-        person5.output1();
+        person5.printInfo1();
 
     }
 

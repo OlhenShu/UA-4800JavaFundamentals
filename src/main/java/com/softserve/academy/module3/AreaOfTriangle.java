@@ -11,11 +11,17 @@ public class AreaOfTriangle {
         double side2 = getNumber("Input Side 2: ");
         double side3 = getNumber("Input Side 3: ");
 
-        if (side1 < side2 + side3 && side2 < side1 + side3 && side3 < side1 + side2) {
+        if  (side1 > 0 && side2 > 0 && side3 > 0
+                && side1 < side2 + side3
+                && side2 < side1 + side3
+                && side3 < side1 + side2) {
+            // calculate area
             double s = (side1 + side2 + side3) / 2.0;
             double area = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
             System.out.println("The area of the triangle is: " + "[" + area + "]");
-        } else System.out.println("incorrect triangle!");
+        } else {
+            System.out.println("incorrect triangle!");
+        }
     }
 
 
