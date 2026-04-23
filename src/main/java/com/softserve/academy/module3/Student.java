@@ -1,5 +1,7 @@
 package com.softserve.academy.module3;
 
+import java.util.Objects;
+
 /**
  * Represents a student with attributes such as first name, last name, age, group, and faculty.
  * Also maintains a static count of the number of student instances created.
@@ -42,16 +44,6 @@ public class Student {
 //        this.firstName = firstName;
 //        this.faculty = group;
 //    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Student{");
-        sb.append("firstName='").append(firstName).append('\'');
-        sb.append(", lastName='").append(lastName).append('\'');
-        sb.append(", faculty='").append(faculty).append('\'');
-        sb.append('}');
-        return sb.toString();
-    }
 
     public void print() {
         System.out.println("Hello!");
@@ -101,6 +93,26 @@ public class Student {
         this.group = group;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return age == student.age && Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, age);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", faculty='" + faculty + '\'' +
+                '}';
+    }
 }
 
 
