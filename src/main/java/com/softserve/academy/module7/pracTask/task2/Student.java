@@ -11,6 +11,6 @@ public class Student extends Person {
 
     @Override
     public void print() {
-        System.out.println("Student: " + name);
+        System.out.println("I am a " + name);
     }
 }

@@ -11,7 +11,7 @@ public class Teacher extends Staff {
 
     @Override
     public void print() {
-        System.out.println("Teacher: " + name);
+        System.out.println("I am a " + name);
     }
 
     @Override

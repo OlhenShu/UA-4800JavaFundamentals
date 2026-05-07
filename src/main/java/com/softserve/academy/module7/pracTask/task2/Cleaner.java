@@ -11,7 +11,7 @@ public class Cleaner extends Staff {
 
     @Override
     public void print() {
-        System.out.println("Cleaner: " + name);
+        System.out.println("I am a " + name);
     }
 
     @Override
