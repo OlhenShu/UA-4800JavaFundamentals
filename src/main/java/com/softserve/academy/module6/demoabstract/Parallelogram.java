@@ -1,6 +1,6 @@
 package com.softserve.academy.module6.demoabstract;
 
-public class Parallelogram extends Shape {
+public class Parallelogram extends Shape implements Vertexable{
     private int width;
     private int height;
     private int angle;
@@ -17,5 +17,10 @@ public class Parallelogram extends Shape {
     @Override
     public double getArea() {
         return width * height * Math.sin(Math.toRadians(angle));
+    }
+
+    @Override
+    public int getNumberOfVertices() {
+        return 4;
     }
 }

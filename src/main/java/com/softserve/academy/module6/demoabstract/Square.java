@@ -1,6 +1,6 @@
 package com.softserve.academy.module6.demoabstract;
 
-public class Square extends Shape {
+public class Square extends Shape implements Vertexable {
     private int side;
 
     public Square(int side) {
@@ -15,5 +15,10 @@ public class Square extends Shape {
     @Override
     public double getArea() {
         return (double) side * side;
+    }
+
+    @Override
+    public int getNumberOfVertices() {
+        return 4;
     }
 }
