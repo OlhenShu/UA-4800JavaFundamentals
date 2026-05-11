@@ -8,7 +8,8 @@ public class Person {
     private String lastName;
     private int birthYear;
 
-    public Person() {}
+    public Person() {
+    }
 
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
@@ -16,10 +17,22 @@ public class Person {
     }
 
     public int getAge(int birthYear) {
+        if (birthYear <= 0) {
+            throw new IllegalArgumentException("Birth year must be a positive integer");
+        }
         return Year.now().getValue() - birthYear;
     }
 
     public void input(String firstName, String lastName, int birthYear) {
+        if (birthYear <= 0 || birthYear > Year.now().getValue()) {
+            throw new IllegalArgumentException("Birth year must be a positive integer and not in the future");
+        }
+
+        if ((firstName == null || firstName.isEmpty()) &&
+                (lastName == null || lastName.isEmpty())) {
+            throw new IllegalArgumentException("At least one of the names must be provided");
+        }
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthYear = birthYear;
@@ -28,7 +41,7 @@ public class Person {
     public void output() {
 
         String safeFirstName = (firstName == null || firstName.isEmpty()) ? "Unknown" : firstName;
-        String safeLastName  = (lastName == null || lastName.isEmpty()) ? "Unknown" : lastName;
+        String safeLastName = (lastName == null || lastName.isEmpty()) ? "Unknown" : lastName;
 
         System.out.println("First Name: " + safeFirstName);
         System.out.println("Last Name: " + safeLastName);
@@ -36,6 +49,9 @@ public class Person {
     }
 
     public void changeName(String firstName, String lastName) {
+        if(firstName == null || lastName == null) {
+            throw new IllegalArgumentException("First name and last name cannot be null");
+        }
         String oldFirstName = this.firstName;
         String oldLastName = this.lastName;
         if (oldFirstName.equals(firstName) && oldLastName.equals(lastName) || (firstName.isEmpty() && lastName.isEmpty())) {
@@ -47,7 +63,7 @@ public class Person {
         } else {
             System.out.println("No changes made for first name.");
         }
-        if (!lastName.isEmpty()){
+        if (!lastName.isEmpty()) {
             this.lastName = lastName;
         } else {
             System.out.println("No changes made for last name.");
@@ -83,7 +99,7 @@ public class Person {
     public String toString() {
 
         String safeFirstName = (firstName == null || firstName.isEmpty()) ? "Unknown" : firstName;
-        String safeLastName  = (lastName == null || lastName.isEmpty()) ? "Unknown" : lastName;
+        String safeLastName = (lastName == null || lastName.isEmpty()) ? "Unknown" : lastName;
 
         return "FirstName: " + safeFirstName + '\n' +
                 "LastName: " + safeLastName + '\n' +

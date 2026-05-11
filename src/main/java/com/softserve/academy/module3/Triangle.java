@@ -6,15 +6,20 @@ public class Triangle {
 
     public static void main(String[] args) {
         Triangle triangle = new Triangle();
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Input Side 1: ");
-        int a = scanner.nextInt();
-        System.out.print("Input Side 2: ");
-        int b = scanner.nextInt();
-        System.out.print("Input Side 3: ");
-        int c = scanner.nextInt();
-        double area = triangle.triangleArea(a, b, c);
-        System.out.println("The area of the triangle is " + Math.round(area * 100.0) / 100.0);
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Input Side 1: ");
+            int a = scanner.nextInt();
+            System.out.print("Input Side 2: ");
+            int b = scanner.nextInt();
+            System.out.print("Input Side 3: ");
+            int c = scanner.nextInt();
+            double area = triangle.triangleArea(a, b, c);
+            System.out.println("The area of the triangle is " + Math.round(area * 100.0) / 100.0);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Invalid input. Please enter positive integers only.");
+        }
     }
 
     public double triangleArea(int a, int b, int c) {
