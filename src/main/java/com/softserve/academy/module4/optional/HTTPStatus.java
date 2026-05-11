@@ -32,18 +32,21 @@ public class HTTPStatus {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter HTTP status code:");
-        int code = scanner.nextInt();
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter HTTP status code:");
+            int code = scanner.nextInt();
 
-        switch (code) {
-            case 100 -> System.out.println(HTTPError.CONTINUE.getMessage());
-            case 200 -> System.out.println(HTTPError.OK.getMessage());
-            case 201 -> System.out.println(HTTPError.CREATE.getMessage());
-            case 400 -> System.out.println(HTTPError.BAD_REQUEST.getMessage());
-            case 404 -> System.out.println(HTTPError.NOT_FOUND.getMessage());
-            case 500 -> System.out.println(HTTPError.INTERNAL_SERVER_ERROR.getMessage());
-            default -> System.out.println("Unknown status code");
+            switch (code) {
+                case 100 -> System.out.println(HTTPError.CONTINUE.getMessage());
+                case 200 -> System.out.println(HTTPError.OK.getMessage());
+                case 201 -> System.out.println(HTTPError.CREATE.getMessage());
+                case 400 -> System.out.println(HTTPError.BAD_REQUEST.getMessage());
+                case 404 -> System.out.println(HTTPError.NOT_FOUND.getMessage());
+                case 500 -> System.out.println(HTTPError.INTERNAL_SERVER_ERROR.getMessage());
+                default -> System.out.println("Unknown status code");
+            }
+        } catch (Exception e) {
+            System.out.println("Input must be an integer");
         }
 
     }

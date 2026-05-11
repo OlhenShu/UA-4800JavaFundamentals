@@ -42,9 +42,22 @@ public class Faculty {
     public Faculty(){}
 
     public Faculty(String name, int numberOfStudents, Season season) {
-        this.name = name;
-        this.numberOfStudents = numberOfStudents;
-        this.season = season;
+        try {
+            if (name == null || name.isEmpty()) {
+                throw new IllegalArgumentException("Name cannot be null or empty");
+            }
+            if (numberOfStudents < 0) {
+                throw new IllegalArgumentException("Number of students cannot be negative");
+            }
+            if (season == null) {
+                throw new IllegalArgumentException("Season cannot be null");
+            }
+            this.name = name;
+            this.numberOfStudents = numberOfStudents;
+            this.season = season;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid input: " + e.getMessage());
+        }
     }
 
     public Season getSeason() {
@@ -80,14 +93,19 @@ public class Faculty {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter faculty name:");
-        String name = scanner.nextLine();
-        System.out.println("Enter number of students:");
-        int numberOfStudents = scanner.nextInt();
-        System.out.println("Enter season (WINTER, SPRING, SUMMER, AUTUMN):");
-        String seasonInput = scanner.next().toUpperCase();
-        Faculty faculty = new Faculty(name, numberOfStudents, Season.valueOf(seasonInput));
-        System.out.println(faculty);
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter faculty name:");
+            String name = scanner.nextLine();
+            System.out.println("Enter number of students:");
+            int numberOfStudents = scanner.nextInt();
+            System.out.println("Enter season (WINTER, SPRING, SUMMER, AUTUMN):");
+            String seasonInput = scanner.next().toUpperCase();
+            Faculty faculty = new Faculty(name, numberOfStudents, Season.valueOf(seasonInput));
+            System.out.println(faculty);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid input: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Input must be valid");
+        }
     }
 }

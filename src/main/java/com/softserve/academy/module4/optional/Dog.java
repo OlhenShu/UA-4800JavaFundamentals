@@ -10,9 +10,22 @@ public class Dog {
     private Breed breed;
 
     public Dog(String name, int age, Breed breed) {
-        this.name = name;
-        this.age = age;
-        this.breed = breed;
+        try {
+            if (name == null || name.isEmpty()) {
+                throw new IllegalArgumentException("Name cannot be null or empty");
+            }
+            if (age < 0) {
+                throw new IllegalArgumentException("Age cannot be negative");
+            }
+            if (breed == null) {
+                throw new IllegalArgumentException("Breed cannot be null");
+            }
+            this.name = name;
+            this.age = age;
+            this.breed = breed;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid input: " + e.getMessage());
+        }
     }
 
     public static void checkSameName(Dog... dogs) {
@@ -63,13 +76,17 @@ public class Dog {
 
     public static void main(String[] args) {
 
-        Dog dog1 = new Dog("Buddy", 5, Breed.LABRADOR);
-        Dog dog2 = new Dog("Charlie", 3, Breed.BULLDOG);
-        Dog dog3 = new Dog("Buddy", 7, Breed.BEAGLE);
+        try {
+            Dog dog1 = new Dog("Buddy", 5, Breed.LABRADOR);
+            Dog dog2 = new Dog("Charlie", 3, Breed.BULLDOG);
+            Dog dog3 = new Dog("Buddy", 7, Breed.BEAGLE);
 
-        Dog.checkSameName(dog1, dog2, dog3);
-        Dog oldest = Dog.findOldest(dog1, dog2, dog3);
+            Dog.checkSameName(dog1, dog2, dog3);
+            Dog oldest = Dog.findOldest(dog1, dog2, dog3);
 
-        System.out.println("The oldest dog is " + oldest.getName() + " with age " + oldest.getAge() + " and breed " + oldest.getBreed());
+            System.out.println("The oldest dog is " + oldest.getName() + " with age " + oldest.getAge() + " and breed " + oldest.getBreed());
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
     }
 }

@@ -6,14 +6,17 @@ import java.util.Scanner;
 public class OddNumberCounter {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter first number: ");
-        int a = scanner.nextInt();
-        System.out.println("Enter second number: ");
-        int b = scanner.nextInt();
-        System.out.println("Enter third number: ");
-        int c = scanner.nextInt();
-        System.out.println("Number of odd numbers: " + new OddNumberCounter().countOddNumbers(a, b, c));
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter first number: ");
+            int a = scanner.nextInt();
+            System.out.println("Enter second number: ");
+            int b = scanner.nextInt();
+            System.out.println("Enter third number: ");
+            int c = scanner.nextInt();
+            System.out.println("Number of odd numbers: " + new OddNumberCounter().countOddNumbers(a, b, c));
+        } catch (Exception e) {
+            System.out.println("Input must be integers");
+        }
     }
 
     /**

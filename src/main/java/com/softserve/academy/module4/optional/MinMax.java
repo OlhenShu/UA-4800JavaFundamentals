@@ -7,14 +7,17 @@ public class MinMax {
     public static void main(String[] args) {
 
         MinMax minMax = new MinMax();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter three numbers:");
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter three numbers:");
 
-        int a = scanner.nextInt();
-        int b = scanner.nextInt();
-        int c = scanner.nextInt();
+            int a = scanner.nextInt();
+            int b = scanner.nextInt();
+            int c = scanner.nextInt();
 
-        minMax.findMinMax(a, b, c);
+            minMax.findMinMax(a, b, c);
+        } catch (Exception e) {
+            System.out.println("Input must be integers");
+        }
     }
 
     public void findMinMax(int a, int b, int c) {

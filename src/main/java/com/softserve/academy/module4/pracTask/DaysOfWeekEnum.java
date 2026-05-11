@@ -32,16 +32,20 @@ public class DaysOfWeekEnum {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter day of the week in English:");
-        int input = scanner.nextInt();
-        if (input < 1 || input > 7) {
-            System.out.println("Invalid input. Please enter a number between 1 and 7.");
-            return;
-        } else {
-            Day day = Day.values()[input - 1];
-            System.out.println("Day in English: " + day.getEnglishName());
-            System.out.println("Day in Ukrainian: " + day.getUkrainianName());
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter day of the week in English:");
+            int input = scanner.nextInt();
+            if (input < 1 || input > 7) {
+                throw new IllegalArgumentException("Input must be an integer between 1 and 7");
+            } else {
+                Day day = Day.values()[input - 1];
+                System.out.println("Day in English: " + day.getEnglishName());
+                System.out.println("Day in Ukrainian: " + day.getUkrainianName());
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Input must be an integer");
         }
 
     }
