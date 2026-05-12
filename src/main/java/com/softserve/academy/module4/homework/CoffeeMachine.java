@@ -16,7 +16,7 @@ public class CoffeeMachine {
         displayCoffeeChoice(coffeeType);
     }
 
-    public static void displayCoffeeChoice(CoffeeType type) {
+    private static void displayCoffeeChoice(CoffeeType type) {
         System.out.println(type.message);
     }
 

@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class Faculty {
     final static Scanner SCANNER = new Scanner(System.in);
-    private String nameOfFaculty;
-    private int numbersOfStudents;
-    private Season season;
+    private final String nameOfFaculty;
+    private final int numbersOfStudents;
+    private final Season season;
 
     public Faculty(String nameOfFaculty, int numbersOfStudents, Season season) {
         this.nameOfFaculty = nameOfFaculty;
