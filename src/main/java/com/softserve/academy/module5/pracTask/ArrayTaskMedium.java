@@ -7,7 +7,10 @@ import java.util.stream.IntStream;
 public class ArrayTaskMedium {
 
     public static int biggestNumber(int[] arr) {
-        return Arrays.stream(arr).max().orElse(Integer.MIN_VALUE);
+        if (arr.length == 0 || arr == null) {
+            throw new IllegalArgumentException("Array cannot be empty.");
+        }
+        return Arrays.stream(arr).max().orElseThrow();
     }
 
     public static int sumOfPositive(int[] arr) {
@@ -31,13 +34,16 @@ public class ArrayTaskMedium {
     }
 
     public static void main(String[] args) {
-
-        int[] numbers = IntStream.generate(() -> new Random().nextInt(200) - 100).limit(10).toArray();
-        System.out.println("Generated array: " + Arrays.toString(numbers));
-        System.out.println("Biggest number is: " + biggestNumber(numbers));
-        System.out.println("Sum of positive number: " + sumOfPositive(numbers));
-        System.out.println("Count of negative number: " + countNegative(numbers));
-        System.out.println(comparePositions(numbers));
+        try {
+            int[] numbers = IntStream.generate(() -> new Random().nextInt(200) - 100).limit(10).toArray();
+            System.out.println("Generated array: " + Arrays.toString(numbers));
+            System.out.println("Biggest number is: " + biggestNumber(numbers));
+            System.out.println("Sum of positive number: " + sumOfPositive(numbers));
+            System.out.println("Count of negative number: " + countNegative(numbers));
+            System.out.println(comparePositions(numbers));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }

@@ -36,8 +36,21 @@ public class DaysInMonthTest {
 
         DaysInMonth.main(new String[]{});
 
-        assertTrue(out.toString().contains("Invalid month number"));
+        assertTrue(out.toString().contains("Month number must be between 1 and 12"));
 
+    }
+
+    @Test
+    public void testThrowException() {
+        String input = "asd";
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(out));
+
+        DaysInMonth.main(new String[]{});
+        assertTrue(out.toString().contains("Invalid input. Please enter an integer"));
     }
 
 }

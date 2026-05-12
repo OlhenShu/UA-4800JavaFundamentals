@@ -2,8 +2,11 @@ package com.softserve.academy.module5.pracTask;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ArrayTaskMediumTest {
 
@@ -41,6 +44,14 @@ public class ArrayTaskMediumTest {
     public void testComparePositionPosAndNegEqual() {
         int[] arr = {1, 5, -2, -10, -7, 8};
         assertEquals("There are an equal number of positive and negative values in the array.", ArrayTaskMedium.comparePositions(arr));
+    }
+
+    @Test
+    public void testThrowException() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            ArrayTaskMedium.biggestNumber(new int[]{});
+        });
+        assertEquals("Array cannot be empty.", exception.getMessage());
     }
 
 }

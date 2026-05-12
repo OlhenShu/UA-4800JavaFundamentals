@@ -16,7 +16,7 @@ public class GuessNumber {
         System.out.println("Guess number from 1 to 100");
 
         while (isFalse) {
-            userGuess = scanner.nextInt();
+            userGuess = Integer.parseInt(scanner.nextLine());
             if (userGuess < numberToGuess) {
                 System.out.println("Too low, try again.");
             } else if (userGuess > numberToGuess) {
@@ -29,10 +29,12 @@ public class GuessNumber {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int numberToGuess = (int) (Math.random() * 100) + 1;
-        new GuessNumber(numberToGuess).play(scanner);
-        scanner.close();
+        try (Scanner scanner = new Scanner(System.in)) {
+            int numberToGuess = (int) (Math.random() * 100) + 1;
+            new GuessNumber(numberToGuess).play(scanner);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid integer.");
+        }
     }
 
 }

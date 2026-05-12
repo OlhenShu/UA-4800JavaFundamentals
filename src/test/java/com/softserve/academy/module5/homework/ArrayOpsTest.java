@@ -43,4 +43,17 @@ public class ArrayOpsTest {
         assertTrue(out.toString().contains("Product of even numbers (excluding zero): 8"));
     }
 
+    @Test
+    public void testThrowException() {
+        String input = "asd";
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(out));
+
+        ArrayOps.main(new String[]{});
+        assertTrue(out.toString().contains("Invalid input. Please enter integers."));
+    }
+
 }

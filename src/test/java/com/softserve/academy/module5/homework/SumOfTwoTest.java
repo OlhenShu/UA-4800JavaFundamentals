@@ -1,5 +1,6 @@
 package com.softserve.academy.module5.homework;
 
+import com.softserve.academy.module5.pracTask.Employee;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -40,6 +41,19 @@ public class SumOfTwoTest {
         assertTrue(out.toString().contains("Sum: 15"));
         assertTrue(out.toString().contains("Sum: 1"));
 
+    }
+
+    @Test
+    public void testThrowException() {
+        String input = "asd";
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(out));
+
+        SumOfTwo.main(new String[]{});
+        assertTrue(out.toString().contains("Invalid input. Please enter integers"));
     }
 
 }

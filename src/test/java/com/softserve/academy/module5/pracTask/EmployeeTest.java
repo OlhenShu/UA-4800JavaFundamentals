@@ -39,4 +39,17 @@ public class EmployeeTest {
 
     }
 
+    @Test
+    public void testThrowException() {
+        String input = "asd\n";
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(out));
+
+        Employee.main(new String[]{});
+        assertTrue(out.toString().contains("Invalid input. Please enter an integer for department number."));
+    }
+
 }

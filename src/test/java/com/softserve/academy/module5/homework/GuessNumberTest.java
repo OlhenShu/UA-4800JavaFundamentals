@@ -61,4 +61,17 @@ public class GuessNumberTest {
 
     }
 
+    @Test
+    public void testThrowException() {
+        String input = "asd";
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(out));
+
+        GuessNumber.main(new String[]{});
+        assertTrue(out.toString().contains("Invalid input. Please enter a valid integer."));
+    }
+
 }

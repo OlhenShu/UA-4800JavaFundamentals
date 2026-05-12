@@ -11,6 +11,9 @@ public class Car {
     private double engineCapacity;
 
     public Car(String type, int yearOfProduction, double engineCapacity) {
+        if (type.isEmpty() || yearOfProduction < 1700 || engineCapacity <= 0) {
+            throw new IllegalArgumentException("Type cannot be empty, year of production must be after 1700, and engine capacity must be positive.");
+        }
         this.type = type;
         this.yearOfProduction = yearOfProduction;
         this.engineCapacity = engineCapacity;
@@ -46,20 +49,23 @@ public class Car {
     }
 
     public static void main(String[] args) {
-        List<Car> carList = List.of(
-                new Car("Sedan", 2010, 2.0),
-                new Car("SUV", 2015, 3.5),
-                new Car("Coupe", 2020, 1.8),
-                new Car("Convertible", 2018, 2.5)
-        );
-        Scanner scanner = new Scanner(System.in);
+        try (Scanner scanner = new Scanner(System.in)) {
+            List<Car> carList = List.of(
+                    new Car("Sedan", 2010, 2.0),
+                    new Car("SUV", 2015, 3.5),
+                    new Car("Coupe", 2020, 1.8),
+                    new Car("Convertible", 2018, 2.5)
+            );
 
-        System.out.print("Enter year: ");
-        int year = scanner.nextInt();
-        carList.stream().filter(x -> x.getYearOfProduction() == year).forEach(System.out::println);
-        System.out.println("\nCars sorted by year of production:");
-        carList.stream().sorted(Comparator.comparingInt(Car::getYearOfProduction)).forEach(System.out::println);
-
-        scanner.close();
+            System.out.print("Enter year: ");
+            int year = scanner.nextInt();
+            carList.stream().filter(x -> x.getYearOfProduction() == year).forEach(System.out::println);
+            System.out.println("\nCars sorted by year of production:");
+            carList.stream().sorted(Comparator.comparingInt(Car::getYearOfProduction)).forEach(System.out::println);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Invalid input. Please enter an integer for the year.");
+        }
     }
 }

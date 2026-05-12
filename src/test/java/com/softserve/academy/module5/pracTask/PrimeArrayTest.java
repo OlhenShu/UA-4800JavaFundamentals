@@ -6,7 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PrimeArrayTest {
 
@@ -53,6 +53,19 @@ public class PrimeArrayTest {
 
         assertTrue(out.toString().contains("Is not a prime number."));
 
+    }
+
+    @Test
+    public void testEmptyArrayThrowException() {
+        String input = "asd";
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(out));
+
+        PrimeArray.main(new String[]{});
+        assertTrue(out.toString().contains("Invalid input. Please enter an integer"));
     }
 
 }

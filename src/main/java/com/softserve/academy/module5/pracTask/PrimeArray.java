@@ -6,15 +6,18 @@ public class PrimeArray {
 
     public static void main(String[] args) {
         System.out.print("Enter random number: ");
-        Scanner scanner = new Scanner(System.in);
-        int number = scanner.nextInt();
-        if (isPrime(number)) {
-            System.out.println("Is a prime number.");
-        } else {
-            System.out.println("Is not a prime number.");
-        }
+        try(Scanner scanner = new Scanner(System.in)) {
+            int number = scanner.nextInt();
 
-        scanner.close();
+            if (isPrime(number)) {
+                System.out.println("Is a prime number.");
+            } else {
+                System.out.println("Is not a prime number.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Invalid input. Please enter an integer");
+        }
     }
 
     public static boolean isPrime(int number) {

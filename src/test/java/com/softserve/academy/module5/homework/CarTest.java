@@ -49,4 +49,17 @@ public class CarTest {
 
     }
 
+    @Test
+    public void testThrowException() {
+        String input = "asd";
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(out));
+
+        Car.main(new String[]{});
+        assertTrue(out.toString().contains("Invalid input. Please enter an integer for the year."));
+    }
+
 }
