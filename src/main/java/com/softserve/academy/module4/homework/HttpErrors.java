@@ -7,8 +7,8 @@ enum HTTPErrors {
     NOT_FOUND(404, "Not Found  code error: "),
     METHOD_NOT_ALLOWED(405, "Method Not Allowed  code error: "),
     ;
-    public final int codeError;
-    public final String nameOfError;
+    private final int codeError;
+    private final String nameOfError;
 
 
     HTTPErrors(int codeError, String nameOfError) {
