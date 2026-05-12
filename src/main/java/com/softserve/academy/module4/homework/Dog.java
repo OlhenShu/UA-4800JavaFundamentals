@@ -4,9 +4,9 @@ import java.util.Objects;
 
 
 public class Dog {
-    private String name;
-    private String breed;
-    private int age;
+    private final String name;
+    private final String breed;
+    private final int age;
 
     public Dog(String name, int age, String breed) {
         this.name = name;
@@ -23,13 +23,6 @@ public class Dog {
         return name;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Dog dog = (Dog) o;
-        return age == dog.age && Objects.equals(name, dog.name) && breed == dog.breed;
-    }
 
     @Override
     public int hashCode() {
