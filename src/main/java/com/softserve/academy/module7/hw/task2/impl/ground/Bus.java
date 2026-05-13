@@ -8,6 +8,9 @@ public class Bus extends GroundVehicle {
 
     public Bus(int passengers, String route) {
         super(passengers);
+        if (route == null || route.isEmpty()) {
+            throw new IllegalArgumentException("Route cannot be null or empty.");
+        }
         this.route = route;
     }
 

@@ -7,6 +7,9 @@ public abstract class Person {
     protected String name;
 
     public Person(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
         this.name = name;
         System.out.println(TYPE_PERSON + " created\n");
     }

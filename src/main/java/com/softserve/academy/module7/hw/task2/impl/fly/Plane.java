@@ -8,6 +8,9 @@ public class Plane extends FlyingVehicle {
 
     public Plane(int passengers, int maxDistance) {
         super(passengers);
+        if (maxDistance < 0) {
+            throw new IllegalArgumentException("Maximum distance cannot be negative.");
+        }
         this.maxDistance = maxDistance;
     }
 

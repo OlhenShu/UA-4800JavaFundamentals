@@ -8,6 +8,9 @@ public class Motorcycle extends GroundVehicle {
 
     public Motorcycle(int passengers, int maxSpeed) {
         super(passengers);
+        if (maxSpeed < 0) {
+            throw new IllegalArgumentException("Max speed cannot be negative.");
+        }
         this.maxSpeed = maxSpeed;
     }
 

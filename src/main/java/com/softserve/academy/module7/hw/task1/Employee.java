@@ -6,6 +6,12 @@ public abstract class Employee {
     private String name;
 
     public Employee(String employeeId, String name) {
+        if (employeeId == null || employeeId.isEmpty()) {
+            throw new IllegalArgumentException("Employee ID cannot be null or empty");
+        }
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
         this.employeeId = employeeId;
         this.name = name;
     }

@@ -8,6 +8,9 @@ public class Car extends GroundVehicle {
 
     public Car(int passengers, String model) {
         super(passengers);
+        if (model == null || model.isEmpty()) {
+            throw new IllegalArgumentException("Model cannot be null or empty.");
+        }
         this.model = model;
     }
 

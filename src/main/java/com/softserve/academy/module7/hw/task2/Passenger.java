@@ -5,6 +5,9 @@ public abstract class Passenger {
     private int passengers;
 
     public Passenger(int passengers) {
+        if (passengers < 0) {
+            throw new IllegalArgumentException("Number of passengers cannot be negative.");
+        }
         this.passengers = passengers;
     }
 

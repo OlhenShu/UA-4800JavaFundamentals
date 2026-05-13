@@ -6,6 +6,9 @@ public class Liner extends WaterVehicle {
 
     public Liner(int passengers, int floors) {
         super(passengers);
+        if (floors < 0) {
+            throw new IllegalArgumentException("Number of floors cannot be negative.");
+        }
         this.floors = floors;
     }
 

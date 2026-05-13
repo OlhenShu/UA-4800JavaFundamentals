@@ -14,35 +14,39 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        List<Vehicle> vehicles = List.of(
-                new Car(4, "Toyota"),
-                new Bus(40, "Route 1"),
-                new Liner(2000, 3)
-        );
-        Arrays.stream(vehicles.toArray())
-                .filter(vehicle -> vehicle instanceof Car)
-                .map(vehicle -> (Car) vehicle)
-                .forEach(car -> {
-                    System.out.println("Car brand: " + car.getModel());
-                    car.drive();
-                    System.out.println("------------------");
-                });
-        Arrays.stream(vehicles.toArray())
-                .filter(vehicle -> vehicle instanceof Bus)
-                .map(vehicle -> (Bus) vehicle)
-                .forEach(bus -> {
-                    System.out.println("Bus route: " + bus.getRoute());
-                    bus.drive();
-                    System.out.println("------------------");
-                });
-        Arrays.stream(vehicles.toArray())
-                .filter(vehicle -> vehicle instanceof Liner)
-                .map(vehicle -> (Liner) vehicle)
-                .forEach(liner -> {
-                    System.out.println("Liner floors: " + liner.getFloors());
-                    liner.isSailing();
-                    System.out.println("------------------");
-                });
+        try {
+            List<Vehicle> vehicles = List.of(
+                    new Car(4, "Toyota"),
+                    new Bus(40, "Route 1"),
+                    new Liner(2000, 3)
+            );
+            Arrays.stream(vehicles.toArray())
+                    .filter(vehicle -> vehicle instanceof Car)
+                    .map(vehicle -> (Car) vehicle)
+                    .forEach(car -> {
+                        System.out.println("Car brand: " + car.getModel());
+                        car.drive();
+                        System.out.println("------------------");
+                    });
+            Arrays.stream(vehicles.toArray())
+                    .filter(vehicle -> vehicle instanceof Bus)
+                    .map(vehicle -> (Bus) vehicle)
+                    .forEach(bus -> {
+                        System.out.println("Bus route: " + bus.getRoute());
+                        bus.drive();
+                        System.out.println("------------------");
+                    });
+            Arrays.stream(vehicles.toArray())
+                    .filter(vehicle -> vehicle instanceof Liner)
+                    .map(vehicle -> (Liner) vehicle)
+                    .forEach(liner -> {
+                        System.out.println("Liner floors: " + liner.getFloors());
+                        liner.isSailing();
+                        System.out.println("------------------");
+                    });
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
 }
