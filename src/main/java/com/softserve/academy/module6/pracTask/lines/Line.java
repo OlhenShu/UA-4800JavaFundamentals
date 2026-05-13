@@ -6,6 +6,9 @@ public class Line {
     private Point point2;
 
     public Line(Point point1, Point point2) {
+        if (point1 == null || point2 == null) {
+            throw new IllegalArgumentException("Points cannot be null");
+        }
         this.point1 = point1;
         this.point2 = point2;
     }

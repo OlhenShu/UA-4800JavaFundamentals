@@ -6,6 +6,9 @@ public abstract class Bird {
     private boolean layEggs;
 
     public Bird(String feathers, boolean layEggs) {
+        if (feathers == null || feathers.isEmpty()) {
+            throw new IllegalArgumentException("Feathers description cannot be null or empty.");
+        }
         this.feathers = feathers;
         this.layEggs = layEggs;
     }

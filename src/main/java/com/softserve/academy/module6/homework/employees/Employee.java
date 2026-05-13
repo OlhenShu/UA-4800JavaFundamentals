@@ -7,6 +7,15 @@ public class Employee {
     private double salary;
 
     public Employee(String name, int age, double salary) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty.");
+        }
+        if (age <= 0) {
+            throw new IllegalArgumentException("Age must be greater than 0.");
+        }
+        if (salary < 0) {
+            throw new IllegalArgumentException("Salary cannot be negative.");
+        }
         this.name = name;
         this.age = age;
         this.salary = salary;

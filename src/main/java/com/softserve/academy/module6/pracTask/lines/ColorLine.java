@@ -6,6 +6,9 @@ public class ColorLine extends Line {
 
     public ColorLine(Point point1, Point point2, String color) {
         super(point1, point2);
+        if (color == null || color.isEmpty()) {
+            throw new IllegalArgumentException("Color cannot be null or empty");
+        }
         this.color = color;
     }
 

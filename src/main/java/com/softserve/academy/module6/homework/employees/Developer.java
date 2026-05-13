@@ -6,6 +6,9 @@ public class Developer extends Employee {
 
     public Developer(String name, int age, double salary, String position) {
         super(name, age, salary);
+        if (position == null || position.isEmpty()) {
+            throw new IllegalArgumentException("Position cannot be null or empty.");
+        }
         this.position = position;
     }
 
